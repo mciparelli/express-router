@@ -1,57 +1,57 @@
+**express-router** is a library for organizing routes of an express application.
 
-  **express-router** is a library for organizing routes of an express application
 ## Usage
 
-  **express-router** lets you write your express routes in a simpler way.
-  You just have to create a 'routes' folder inside your project and place your routes in an index.txt file.
-  
-  So your app will be structured like this:
-  - app.js
-  - /routes/
-    - index.txt
-    - products.js
-    - users.js
+**express-router** lets you write your express routes in a simpler way.
+You just have to create a 'routes' folder inside your project and place your routes in an index.txt file.
 
-  Then, in your app.js, you just do this after defining app = express():
+So your app will be structured like this:
+- app.js
+- /routes/
+  - index.txt
+  - products.js
+  - users.js
+
+Then, in your app.js, you just do this after defining app = express():
 
 ```js
 require('express-router')();
 ```
 
-  If you want to use another folder for routes:
+If you want to use another folder for routes:
 
 ```js
 require('express-router')('thisismynewroutesfolder');
 ```
 
-  If you do not want to define 'app' globally (**express-router** will check for global.app):
+If you do not want to define 'app' globally (**express-router** will check for global.app):
 
 ```js
 var app = express();
 require('express-router')(app);
 ```
 
-  Or both:
+Or both:
 
 ```js
 var app = express();
 require('express-router')('thisismynewroutesfolder', app);
 ```
 
-  Finally you structure your routes in the index.txt file like this: method url middleware1,middleware2,...,middlewareN (empty lines and comments are supported):
+Finally you structure your routes in the index.txt file like this: method url middleware1,middleware2,...,middlewareN (empty lines and comments are supported):
 
-  ```
-  //BEGIN PRODUCT ROUTES
-  GET /products products.list
-  POST /products products.create
-  GET /shoes products.shoes.find,products.shoes.list
-  //END PRODUCT ROUTES
+```
+//BEGIN PRODUCT ROUTES
+GET /products products.list
+POST /products products.create
+GET /shoes products.shoes.find,products.shoes.list
+//END PRODUCT ROUTES
 
-  //BEGIN USER ROUTES
-  GET /users/new users.new
-  POST /users/:user users.show
-  //END USER ROUTES
-  ```
+//BEGIN USER ROUTES
+GET /users/new users.new
+POST /users/:user users.show
+//END USER ROUTES
+```
 
 ## Installation
 
